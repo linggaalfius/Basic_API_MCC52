@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5LpKn71nWMJljrox7cLD10eQ2Aw/5gGh2YHN4dAOxIO+vhvj4InoX1Q7G6pVEZsevA+/VBpoVT9ooH3DFjPTig==",
+  "dgSpecHash": "yC3rR8rebLjWzAxoDE8lFEA8Ot3pNgaS1R18x2GrrRcyp1qjAhPnTd4/BXuUM4H0IIUqK8ieljEsYn6zpwaiqA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -58,6 +58,7 @@
     "C:\\Users\\Alfius\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\Alfius\\.nuget\\packages\\solrnet.core\\1.0.19\\solrnet.core.1.0.19.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

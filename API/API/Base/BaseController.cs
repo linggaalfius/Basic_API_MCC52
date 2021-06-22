@@ -81,7 +81,6 @@ namespace API.Base
         [HttpPut]
         public ActionResult Update(Entity e, Key key)
         {
-            //var find = repository.Get(key);
             var response = repository.Update(e, key);
             if (key == null)
             {

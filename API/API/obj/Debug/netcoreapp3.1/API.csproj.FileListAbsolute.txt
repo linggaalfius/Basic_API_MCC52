@@ -65,3 +65,5 @@ C:\Users\Alfius\source\repos\API\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCor
 C:\Users\Alfius\source\repos\API\API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Alfius\source\repos\API\API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\Alfius\source\repos\API\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Alfius\source\repos\API\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache
+C:\Users\Alfius\source\repos\API\API\bin\Debug\netcoreapp3.1\SolrNet.dll

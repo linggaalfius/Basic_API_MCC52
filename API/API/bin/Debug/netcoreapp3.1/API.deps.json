@@ -36,6 +36,7 @@
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.7",
+          "SolrNet.Core": "1.0.19",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -913,6 +914,20 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "SolrNet.Core/1.0.19": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SolrNet.dll": {
+            "assemblyVersion": "1.0.19.0",
+            "fileVersion": "1.0.19.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SolrNet.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -3786,6 +3801,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "SolrNet.Core/1.0.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Sy0f53KwVehE65bSVsmNfaYa5SDyQdsMkBD3oPvsMCnAOwXy7ZnXhnYHEbGM8z3akdhxa7/gR0JaAoIN2fKBeA==",
+      "path": "solrnet.core/1.0.19",
+      "hashPath": "solrnet.core.1.0.19.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

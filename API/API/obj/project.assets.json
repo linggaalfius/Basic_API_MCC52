@@ -746,6 +746,18 @@
           }
         }
       },
+      "SolrNet.Core/1.0.19": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/SolrNet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SolrNet.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3301,6 +3313,21 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "SolrNet.Core/1.0.19": {
+      "sha512": "Sy0f53KwVehE65bSVsmNfaYa5SDyQdsMkBD3oPvsMCnAOwXy7ZnXhnYHEbGM8z3akdhxa7/gR0JaAoIN2fKBeA==",
+      "type": "package",
+      "path": "solrnet.core/1.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net46/SolrNet.dll",
+        "lib/net46/SolrNet.xml",
+        "lib/netstandard2.0/SolrNet.dll",
+        "lib/netstandard2.0/SolrNet.xml",
+        "solrnet.core.1.0.19.nupkg.sha512",
+        "solrnet.core.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -7509,7 +7536,8 @@
       "Microsoft.EntityFrameworkCore >= 5.0.7",
       "Microsoft.EntityFrameworkCore.Proxies >= 5.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.7",
-      "Microsoft.EntityFrameworkCore.Tools >= 5.0.7"
+      "Microsoft.EntityFrameworkCore.Tools >= 5.0.7",
+      "SolrNet.Core >= 1.0.19"
     ]
   },
   "packageFolders": {
@@ -7573,6 +7601,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.7, )"
+          },
+          "SolrNet.Core": {
+            "target": "Package",
+            "version": "[1.0.19, )"
           }
         },
         "imports": [

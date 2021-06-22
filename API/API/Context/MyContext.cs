@@ -13,12 +13,12 @@ namespace API.Context
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseLazyLoadingProxies();
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseLazyLoadingProxies();
+        //}
 
-        public DbSet<Employee> Entity { get; set; } 
+        public DbSet<Employee> Employees { get; set; } 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Profiling> Profilings { get; set; } 
