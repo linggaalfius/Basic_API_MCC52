@@ -1,6 +1,7 @@
 ﻿using API.Context;
 using API.Models;
 using API.ViewModels;
+using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,11 @@ namespace API.Repository.Data
         public EmployeeRepository(MyContext myContext) : base(myContext)
         {
             this.myContext = myContext;
+        }
+
+        public static string GetRandomSalt()
+        {
+            return BCrypt.Net.BCrypt.GenerateSalt(12);
         }
 
         public int Register(RegisterVM registerVM)
@@ -45,7 +51,7 @@ namespace API.Repository.Data
                     profiling.EducationId = registerVM.EducationID;
 
                     account.NIK = registerVM.NIK;
-                    account.Password = registerVM.Password;
+                    account.Password = BCrypt.Net.BCrypt.HashPassword(registerVM.Password, GetRandomSalt());
 
                     education.Degree = registerVM.Degree;
                     education.GPA = registerVM.GPA;

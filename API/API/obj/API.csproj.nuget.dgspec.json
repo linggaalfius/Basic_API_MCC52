@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj": {}
+    "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj": {
+    "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Alfius\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alfius\\source\\repos\\API\\API\\obj\\",
+        "outputPath": "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alfius\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[3.1.16, )"

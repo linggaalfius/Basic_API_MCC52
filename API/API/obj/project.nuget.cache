@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yC3rR8rebLjWzAxoDE8lFEA8Ot3pNgaS1R18x2GrrRcyp1qjAhPnTd4/BXuUM4H0IIUqK8ieljEsYn6zpwaiqA==",
+  "dgSpecHash": "5c1sCywOEfcxMn8t3THgizLYu2vNpfeUhbWo49jrdZR1SUaCpCQhiA0ztz7u0tmwlVDslrYadmHVnDg+qfemHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alfius\\source\\repos\\API\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Alfius\\Documents\\GitHub\\Basic_API\\API\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Alfius\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Alfius\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.16\\microsoft.aspnetcore.jsonpatch.3.1.16.nupkg.sha512",

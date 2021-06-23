@@ -39,5 +39,19 @@ namespace API.Controllers
                 return BadRequest(new { StatusCode = HttpStatusCode.BadRequest, result = response, message = "NIK / Email not found" });
             }
         }
+
+        [HttpPost("ResetPassword")]
+        public ActionResult ResetPassword(LoginVM resetPas)
+        {
+            var response = repository.ResetPassword(resetPas);
+            if(response == 1)
+            {
+                return Ok(new { StatusCode = HttpStatusCode.OK, result = response, message = "Mail Sent" });
+            }
+            else
+            {
+                return BadRequest(new { StatusCode = HttpStatusCode.BadRequest, result = response, message = "Failed" });
+            }
+        }
     }
 }
