@@ -18,6 +18,10 @@ namespace API.Repository.Data
         {
             this.myContext = myContext;
         }
+        public static string GetRandomSalt()
+        {
+            return BCrypt.Net.BCrypt.GenerateSalt(12);
+        }
 
         public int Login(LoginVM loginVM)
         {
@@ -59,10 +63,34 @@ namespace API.Repository.Data
 
             var find1 = myContext.Employees.Where(e => e.Email == getEmail).FirstOrDefault<Employee>();
             var find2 = myContext.Accounts.Find(find1.NIK);
-            find2.Password = BCrypt.Net.BCrypt.HashPassword(guid.ToString());
+            find2.Password = BCrypt.Net.BCrypt.HashPassword(guid.ToString(), GetRandomSalt());
             myContext.SaveChanges();
 
             return 1;
+        }
+
+        public int ChangePassword(ChangePasswordVM changePassVM)
+        {
+            var login = myContext.Employees.Where(x => (x.NIK == changePassVM.NIK) || (x.Email == changePassVM.Email)).FirstOrDefault<Employee>();
+            if(login != null)
+            {
+                var checkPass = BCrypt.Net.BCrypt.Verify(changePassVM.OldPassword, login.Account.Password);
+                if (checkPass)
+                {
+                    var changePass = myContext.Accounts.Find(login.NIK);
+                    changePass.Password = BCrypt.Net.BCrypt.HashPassword(changePassVM.NewPassword, GetRandomSalt());
+                    myContext.SaveChanges();
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
