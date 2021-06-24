@@ -20,6 +20,8 @@ namespace API.Context
 
         public DbSet<Employee> Employees { get; set; } 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountRole> AccountRoles { get; set; }
+        public DbSet<Role> Roles { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Profiling> Profilings { get; set; } 
         public DbSet<University> Universities { get; set; }
@@ -28,11 +30,21 @@ namespace API.Context
             modelBuilder.Entity<Education>()
                 .HasOne(u => u.University)
                 .WithMany(e => e.Educations);            
-                //.HasForeignKey(u => u.University);
 
             modelBuilder.Entity<Profiling>()
                 .HasOne(e => e.Education)
                 .WithMany(p => p.Profilings);
+
+            modelBuilder.Entity<AccountRole>()
+                .HasKey(ac => new { ac.NIK, ac.RoleID });
+            modelBuilder.Entity<AccountRole>()
+                .HasOne(a => a.Account)
+                .WithMany(ac => ac.AccountRoles)
+                .HasForeignKey(a => a.NIK);
+            modelBuilder.Entity<AccountRole>()
+                .HasOne(r => r.Role)
+                .WithMany(ac => ac.AccountRoles)
+                .HasForeignKey(r => r.RoleID);
 
             modelBuilder.Entity<Employee>()
                 .HasOne(a => a.Account)

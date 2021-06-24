@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    [Table("tb_t_Account")]
-    public class Account
+    [Table("tb_t_AccountRole")]
+    public class AccountRole
     {
         [Key]
+        public string ID { get; set; }
         public string NIK { get; set; }
-        public string Password { get; set; }
+        //[ForeignKey]
+        public string RoleID { get; set; }
 
         [JsonIgnore]
-        public virtual Employee Employee { get; set; }
+        public virtual Account Account { get; set; }
         [JsonIgnore]
-        public virtual Profiling Profiling { get; set; }
-        [JsonIgnore]
-        public virtual ICollection<AccountRole> AccountRoles { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
