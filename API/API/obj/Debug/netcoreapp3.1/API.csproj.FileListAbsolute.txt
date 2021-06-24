@@ -136,3 +136,4 @@ C:\Users\Alfius\Documents\GitHub\Basic_API\API\API\obj\Debug\netcoreapp3.1\API.c
 C:\Users\Alfius\Documents\GitHub\Basic_API\API\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Users\Alfius\Documents\GitHub\Basic_API\API\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Users\Alfius\Documents\GitHub\Basic_API\API\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\Alfius\Documents\GitHub\Basic_API\API\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache

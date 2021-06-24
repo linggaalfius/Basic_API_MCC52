@@ -75,5 +75,67 @@ namespace API.Repository.Data
                 return 0;
             }
         }
+
+        public IQueryable ViewRegistered()
+        {
+            var view = (from em in myContext.Employees
+                        join ac in myContext.Accounts on em.NIK equals ac.NIK
+                        join pr in myContext.Profilings on ac.NIK equals pr.NIK
+                        join ed in myContext.Educations on pr.EducationId equals ed.EducationId
+                        join un in myContext.Universities on ed.UniversityId equals un.UniversityId
+                        select new
+                        {
+                            em.NIK,
+                            em.FirstName,
+                            em.LastName,
+                            em.Email,
+                            em.PhoneNumber,
+                            em.Salary,
+                            em.BirthDate,
+                            em.Gender,
+                            ac.Password,
+                            ed.Degree,
+                            ed.GPA,
+                            un.UniversityId,
+                            un.Name
+                        });
+            return view;
+        }
+
+        public IQueryable ViewRegisteredbyID(string nik)
+        {
+            var find = myContext.Employees.Find(nik);
+
+            if(find != null)
+            {
+                        var view = (from em in myContext.Employees
+                        join ac in myContext.Accounts on em.NIK equals ac.NIK
+                        join pr in myContext.Profilings on ac.NIK equals pr.NIK
+                        join ed in myContext.Educations on pr.EducationId equals ed.EducationId
+                        join un in myContext.Universities on ed.UniversityId equals un.UniversityId
+                        where em.NIK == nik
+                        select new
+                        {
+                            em.NIK,
+                            em.FirstName,
+                            em.LastName,
+                            em.Email,
+                            em.PhoneNumber,
+                            em.Salary,
+                            em.BirthDate,
+                            em.Gender,
+                            ac.Password,
+                            ed.Degree,
+                            ed.GPA,
+                            un.UniversityId,
+                            un.Name
+                        }) ;
+            return view;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

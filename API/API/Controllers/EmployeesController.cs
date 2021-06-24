@@ -40,5 +40,33 @@ namespace API.Controllers
                 return BadRequest(new { StatusCode = HttpStatusCode.BadRequest, result = regis, message = "NIK already exist" });
             }
         }
+
+        [HttpGet("ViewRegistered")]
+        public ActionResult ViewRegistered()
+        {
+            var view = repository.ViewRegistered();
+            if (view != null)
+            {
+                return Ok(new { StatusCode = HttpStatusCode.OK, result = view, message = "View Success" });
+            }
+            else
+            {
+                return BadRequest(new { StatusCode = HttpStatusCode.BadRequest, result = view, message = "View not success" });
+            }
+        }
+
+        [HttpGet("ViewByID/{nik}")]
+        public ActionResult ViewRegisteredbyID(string nik)
+        {
+            var view = repository.ViewRegisteredbyID(nik);
+            if (view != null)
+            {
+                return Ok(new { StatusCode = HttpStatusCode.OK, result = view, message = "View Success" });
+            }
+            else
+            {
+                return BadRequest(new { StatusCode = HttpStatusCode.BadRequest, result = view, message = "View not success" });
+            }
+        }
     }
 }
