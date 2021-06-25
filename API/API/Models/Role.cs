@@ -14,11 +14,7 @@ namespace API.Models
         [Key]
         public string RoleID { get; set; }
         public string RoleName { get; set; }
-        //public Employee NIK { get; set; }
-        //[JsonIgnore]
-        //public virtual Employee Employee { get; set; }
-        //[JsonIgnore]
-        //public virtual Profiling Profiling { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<AccountRole> AccountRoles { get; set; }
 

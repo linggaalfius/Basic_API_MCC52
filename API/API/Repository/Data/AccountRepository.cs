@@ -23,6 +23,13 @@ namespace API.Repository.Data
             return BCrypt.Net.BCrypt.GenerateSalt(12);
         }
 
+        public static string GetDate()
+        {
+            string time = DateTime.Now.ToString("yyyy:MM:dd H:mm");
+            return time;
+        }
+
+
         public int Login(LoginVM loginVM)
         {
             var login = myContext.Employees.Where(x => (x.NIK == loginVM.NIK) || (x.Email == loginVM.Email)).FirstOrDefault<Employee>();
@@ -47,14 +54,15 @@ namespace API.Repository.Data
         public int ResetPassword(LoginVM resetPas)
         {
             Guid guid = Guid.NewGuid();
+            var getName = myContext.Employees.FirstOrDefault(e => e.Email == resetPas.Email);
             var getEmail = resetPas.Email;
             MailMessage mail = new MailMessage();
             SmtpClient smtpServer = new SmtpClient("smtp.gmail.com", 587);
 
             mail.From = new MailAddress("slametman69@gmail.com");
             mail.To.Add(getEmail);
-            mail.Subject = "Test Reset Passw";
-            mail.Body = "This is your new password: " + guid.ToString();
+            mail.Subject = "Reset Password " + GetDate();
+            mail.Body = "Hai" + getName.FirstName + ", ini passwordnya: " + guid.ToString() + ". Segera ganti passwordmu ya.";
 
             smtpServer.UseDefaultCredentials = true;
             smtpServer.Credentials = new NetworkCredential("slametman69@gmail.com", "skaphobia");

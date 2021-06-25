@@ -29,6 +29,8 @@ namespace API.Repository.Data
         {
             Employee employee = new Employee();
             Account account = new Account();
+            AccountRole accountRole = new AccountRole();
+            Role role = new Role();
             Education education = new Education();
             Profiling profiling = new Profiling();
 
@@ -46,22 +48,29 @@ namespace API.Repository.Data
                     employee.PhoneNumber = registerVM.PhoneNumber;
                     employee.BirthDate = registerVM.BirthDate;
                     employee.Gender = (Employee.GenderType)registerVM.Gender;
-
-                    profiling.NIK = registerVM.NIK;
-                    profiling.EducationId = registerVM.EducationID;
+                    myContext.Employees.Add(employee);
+                    myContext.SaveChanges();
 
                     account.NIK = registerVM.NIK;
-                    account.Password = BCrypt.Net.BCrypt.HashPassword(registerVM.Password, GetRandomSalt());
+                    account.Password= BCrypt.Net.BCrypt.HashPassword(registerVM.Password, GetRandomSalt());
+                    myContext.Accounts.Add(account);
+                    myContext.SaveChanges();
+
+                    accountRole.RoleID = "R1";
+                    accountRole.NIK = registerVM.NIK;
+                    myContext.AccountRoles.Add(accountRole);
+                    myContext.SaveChanges();
 
                     education.Degree = registerVM.Degree;
                     education.GPA = registerVM.GPA;
                     education.UniversityId = registerVM.UniversityID;
-
-                    myContext.Employees.Add(employee);
-                    myContext.Accounts.Add(account);
-                    myContext.Profilings.Add(profiling);
                     myContext.Educations.Add(education);
-                    var insert = myContext.SaveChanges();
+                    myContext.SaveChanges();
+
+                    profiling.NIK = registerVM.NIK;
+                    profiling.EducationId = registerVM.EducationID;
+                    myContext.Profilings.Add(profiling);
+                    myContext.SaveChanges();
 
                     return 2;
                 }
