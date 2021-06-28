@@ -1,4 +1,5 @@
 ﻿using API.Repository.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace API.Base
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class BaseController<Entity, Repository, Key> : ControllerBase
         where Entity : class
         where Repository : IGeneralRepository<Entity, Key>

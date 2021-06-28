@@ -32,6 +32,10 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44335"));
+            });
             services.AddControllers();
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext"))); //alias dari koneksi string
             services.AddDbContext<MyContext>(options => options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("APIContext")));
@@ -77,6 +81,8 @@ namespace API
 
             app.UseAuthorization();
 
+            app.UseCors(options => options.WithOrigins("https://localhost:44335"));
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

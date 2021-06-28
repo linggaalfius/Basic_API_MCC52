@@ -38,7 +38,6 @@ namespace API.Repository
 
         public Entity Get(Key key)
         {
-            //var find = entities.Find(key);
             return entities.Find(key);
         }
 
@@ -51,10 +50,6 @@ namespace API.Repository
 
         public int Update(Entity e, Key key)
         {
-            //myContext.Entry(e).State = EntityState.Modified;
-            //var update = myContext.SaveChanges();
-            //return myContext.SaveChanges();
-
             myContext.Entry(e).State = EntityState.Modified;
             myContext.Update(e);
             return myContext.SaveChanges();

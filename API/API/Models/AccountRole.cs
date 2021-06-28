@@ -14,7 +14,6 @@ namespace API.Models
         [Key]
         public string ID { get; set; }
         public string NIK { get; set; }
-        //[ForeignKey]
         public string RoleID { get; set; }
 
         [JsonIgnore]

@@ -13,7 +13,6 @@ namespace API.Repository.Data
     public class EmployeeRepository : GeneralRepository<MyContext, Employee, string>
     {
         private readonly MyContext myContext;
-        //private readonly DbSet<Entity> entities;
 
         public EmployeeRepository(MyContext myContext) : base(myContext)
         {
