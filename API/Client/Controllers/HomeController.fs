@@ -12,6 +12,9 @@ type HomeController (logger : ILogger<HomeController>) =
 
     member this.Index () =
         this.View()
+        
+    member this.Ajax () =
+        this.View()
 
     member this.Privacy () =
         this.View()

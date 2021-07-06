@@ -23,6 +23,9 @@ type Startup private () =
         services.AddControllersWithViews().AddRazorRuntimeCompilation() |> ignore
         services.AddRazorPages() |> ignore
 
+        services.AddScoped<Address>();
+        services.AddScoped<EmployeeRepository>();
+
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
 

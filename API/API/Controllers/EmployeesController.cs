@@ -46,13 +46,18 @@ namespace API.Controllers
             }
         }
 
+        //private ActionResult Ok(object get)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         [HttpGet("ViewRegistered")]
         public ActionResult ViewRegistered()
         {
             var view = repository.ViewRegistered();
             if (view != null)
             {
-                return Ok(new { StatusCode = HttpStatusCode.OK, result = view, message = "View Success" });
+                return Ok(view);
             }
             else
             {
@@ -66,7 +71,7 @@ namespace API.Controllers
             var view = repository.ViewRegisteredbyID(nik);
             if (view != null)
             {
-                return Ok(new { StatusCode = HttpStatusCode.OK, result = view, message = "View Success" });
+                return Ok(view);
             }
             else
             {

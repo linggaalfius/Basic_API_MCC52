@@ -28,7 +28,9 @@ namespace API.Controllers
             var response = repository.Login(loginVM);
             if(response == 2)
             {
-                return Ok(new { StatusCode = HttpStatusCode.OK, result = response, message = "Login Success" });
+                var pos = Ok(new JWTokenVM {Status = HttpStatusCode.OK, Token = repository.GenerateTokenLogin(loginVM), Message = "Login Success"});
+                return pos;
+                //return Ok(new { StatusCode = HttpStatusCode.OK, result = response, message = "Login Success" });
             }
             else if(response == 1)
             {

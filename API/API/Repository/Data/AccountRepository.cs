@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
 using BCrypt.Net;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Configuration;
 
 namespace API.Repository.Data
 {
     public class AccountRepository : GeneralRepository<MyContext, Account, string>
     {
+        public IConfiguration configuration;
         private readonly MyContext myContext;
-        public AccountRepository(MyContext myContext) : base(myContext)
+
+        public AccountRepository(IConfiguration config, MyContext myContext) : base(myContext)
         {
+            this.configuration = config;
             this.myContext = myContext;
         }
         public static string GetRandomSalt()
@@ -29,6 +37,35 @@ namespace API.Repository.Data
             return time;
         }
 
+        public string GenerateTokenLogin(LoginVM loginVM)
+        {
+            var data = (
+                from account in myContext.Accounts
+                join employee in myContext.Employees
+                on account.NIK equals employee.NIK
+                join accountRole in myContext.AccountRoles
+                on account.NIK equals accountRole.NIK
+                join role in myContext.Roles
+                on accountRole.RoleID equals role.RoleID
+                where account.NIK == $"{loginVM.NIK}" || employee.Email == $"{loginVM.Email}"
+                select new
+                {
+                    Email = employee.Email,
+                    RoleName = role.RoleName
+                }).ToList();
+            var claims = new List<Claim>();
+            foreach (var item in data)
+            {
+                claims.Add(new Claim("email", item.Email));
+                claims.Add(new Claim("role", item.RoleName));
+            }
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
+            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(configuration["Jwt:Issuer"], configuration["Jwt:Audience"],
+                claims, expires: DateTime.UtcNow.AddDays(1), signingCredentials: signIn);
+            return new JwtSecurityTokenHandler().WriteToken(token);
+            //return Ok(new { status = HttpStatusCode.OK, nik = user.NIK, token = show });
+        }
 
         public int Login(LoginVM loginVM)
         {

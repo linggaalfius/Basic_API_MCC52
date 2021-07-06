@@ -1,0 +1,32 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+       $.ajax({
+           url: "https://localhost:44385/API/Employees",
+           success: function (result) {
+               console.log(result);
+        }
+        })
+    </script>
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+@{
+    ViewData["Title"] = "Ajax";
+    Layout = "_TestingLayout";
+}
+
+<h1 class="mt-4">Ajax</h1>
+
+<ul id="listSW"></ul>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/ajax.js"></script>
+}

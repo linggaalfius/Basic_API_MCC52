@@ -28,7 +28,7 @@ namespace API.Base
         public ActionResult Get()
         {
             var get = repository.Get();
-            return Ok(new { status = HttpStatusCode.OK, result = get, message = "Success"});
+            return Ok(get);
         }
 
         [HttpGet("{key}")] //beda dari atas, cek nik

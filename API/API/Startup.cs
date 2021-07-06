@@ -34,7 +34,7 @@ namespace API
         {
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44335"));
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44319"));
             });
             services.AddControllers();
             //services.AddDbContext<MyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("APIContext"))); //alias dari koneksi string
@@ -81,7 +81,7 @@ namespace API
 
             app.UseAuthorization();
 
-            app.UseCors(options => options.WithOrigins("https://localhost:44335"));
+            app.UseCors(options => options.WithOrigins("https://localhost:44319"));
             
             app.UseEndpoints(endpoints =>
             {

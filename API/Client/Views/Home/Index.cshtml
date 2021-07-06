@@ -2,18 +2,116 @@
     ViewData["Title"] = "Home Page";
 }
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onClick="myModal">Register</button>
 
-   $.ajax({
-       url: "https://localhost:44385/API/Employees",
-       success: function (result) {
-           console.log(result);
-    }
-    })
-</script>
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="table-responsive">
+    <table class="table table-striped" id="myTable">
+        <thead>
+            <tr>
+                <th scope="col">NIK</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Birth Date</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Degree</th>
+                <th scope="col">GPA</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
+
+<div class="modal fade " tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register Employee</h5>
+                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>-->
+            </div>
+            <div class="modal-body" id="detail" center>
+                <form onsubmit="Insert()">
+                    <div class="form-group">
+                        <label for="nik">NIK</label>
+                        <input type="text" class="form-control" id="nik" placeholder="NIK" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="salary">Salary</label>
+                            <input type="text" class="form-control" id="salary" placeholder="Salary" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="birthDate">Birth Date</label>
+                            <input type="date" class="form-control" id="birthDate" placeholder="Birth Date" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender">
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="degree">Degree</label>
+                            <input type="text" class="form-control" id="degree" placeholder="Degree" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="gpa">GPA</label>
+                            <input type="text" class="form-control" id="gpa" placeholder="GPA" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="educationId">Education ID</label>
+                            <input type="text" class="form-control" id="educationId" placeholder="Edu ID" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="universityId">University ID</label>
+                            <input type="text" class="form-control" id="universityId" placeholder="Univ ID" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Register</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<ul id="listPoke"></ul>-->
+@section Scripts{
+<script type="text/javascript" src="~/js/ajax.js"></script>
+}
